@@ -1,0 +1,5 @@
+.DS_Store
+# bulk audio intermediates only; curated evidence and small wavs stay tracked
+scratch/
+*.aif
+*.aiff
