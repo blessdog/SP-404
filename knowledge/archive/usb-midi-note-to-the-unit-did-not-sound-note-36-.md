@@ -2,7 +2,7 @@
 id: usb-midi-note-to-the-unit-did-not-sound-note-36-
 kind: open
 conflict-key: should-we-usb-midi-note-to-the-unit-did-not-sound-note-36-
-status: live
+status: superseded
 supersedes: []
 proven: false
 verified-on: 2026-09-07
@@ -11,7 +11,7 @@ asked-as:
   - usb midi note to the unit did not sound note 36 
 ---
 
-**This is a PLAN, not a finding. `proven: false`. Do not build against it.**
+**RETIRED 2026-09-08 by [[pad-to-note-map-is-top-row-first]]: the MIDI path was never broken; note 36 is pad 13.**
 
 ## USB MIDI note to the unit did not sound: note 36 ch1 is pad 13 in Mode A (pad 1 = note 48), bank B pad 5 in Mode B; both pads have samples, so MIDI path itself is suspect
 
