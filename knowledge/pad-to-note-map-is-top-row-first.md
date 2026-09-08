@@ -47,6 +47,7 @@ pad that may have held nothing. The path is live in both directions:
 How to apply: a deck key that fires a pad computes, with `i = pad - 1`,
 `note = 48 - 4 * floor(i / 4) + (i % 4)` on channel = bank index (A is 1).
 Check: pad 1 → 48, pad 4 → 51, pad 13 → 36, pad 16 → 39. Never assume
-ascending from pad 1. The deck plugin's `plugin/src/midi.ts` is the one place
-this formula lives in code.
+ascending from pad 1. A working implementation is in the deck repo's
+`archive/sp-pad-keys/midi.ts` — archived, because the deck does not fire pads
+(deck law `the-sp-404-is-its-own-trigger`, Ryan: the SP is the trigger).
 Related: [[midi-in-is-notes-only]].
