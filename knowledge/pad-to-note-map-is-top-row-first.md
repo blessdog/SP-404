@@ -44,8 +44,9 @@ broken MIDI path. Note 36 is pad 13, so the script fired the right note at a
 pad that may have held nothing. The path is live in both directions:
 `sendmidi dev SP-404MKII ch 1 on 48 127` is bank A pad 1.
 
-How to apply: a deck key that fires a pad computes
-`note = 36 + (16 - pad)` grouped by row, i.e. `note = 48 + (pad - 1)` for pads
-1–4, `44 + (pad - 5)` for 5–8, `40 + (pad - 9)` for 9–12, `36 + (pad - 13)`
-for 13–16, on channel = bank index. Never assume ascending from pad 1.
+How to apply: a deck key that fires a pad computes, with `i = pad - 1`,
+`note = 48 - 4 * floor(i / 4) + (i % 4)` on channel = bank index (A is 1).
+Check: pad 1 → 48, pad 4 → 51, pad 13 → 36, pad 16 → 39. Never assume
+ascending from pad 1. The deck plugin's `plugin/src/midi.ts` is the one place
+this formula lives in code.
 Related: [[midi-in-is-notes-only]].
