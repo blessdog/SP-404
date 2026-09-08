@@ -4,7 +4,7 @@ kind: verdict
 conflict-key: which-midi-note-is-which-pad
 status: live
 supersedes: [usb-midi-note-to-the-unit-did-not-sound-note-36-]
-scope: SP-404MKII over USB MIDI on this Mac, unit's own pad presses captured with receivemidi 2026-09-08; MIDI mode setting on the unit not yet read off its screen
+scope: SP-404MKII over USB MIDI on this Mac, unit's own pad presses captured with receivemidi 2026-09-08; the unit is in MIDI Mode A (channel = bank), inferred from bank B pad 1 arriving on channel 2 — Roland's v5 note map puts Mode B's bank B on channel 1 at notes 64–79
 evidence: evidence/2026-09-08/pad-note-map-receivemidi.log (Ryan pressed A1, A4, A13, A16, B1 in that order)
 verified-on: 2026-09-08
 asked-as:
@@ -33,6 +33,11 @@ pads by name:
 
 Pad 16 sent nothing on that press; whether an empty pad is silent on MIDI or
 the press missed is still to be read from the unit.
+
+Roland's own table (v5 reference manual, MIDI note map): Mode A is one
+channel per bank, 16 notes each; Mode B is banks A–E on one channel and F–J on
+the next, notes 12–91. The measured channel-2 hit for bank B is only possible
+in Mode A. Source: https://static.roland.com/manuals/sp-404mk2_reference_v500/en-US/8012353178593931.html
 
 What this retires: the 2026-09-07 dead end "note 36 did not sound" was not a
 broken MIDI path. Note 36 is pad 13, so the script fired the right note at a
